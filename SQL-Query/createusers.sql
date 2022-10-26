@@ -1,4 +1,4 @@
-create database cloudskills;
+create database cloudskills1;
 use cloudskills;
 
 create table users (
