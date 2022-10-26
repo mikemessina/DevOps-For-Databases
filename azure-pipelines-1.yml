@@ -1,0 +1,16 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: AzureMysqlDeployment@1
+  inputs:
+    azureSubscription: 'Visual Studio Enterprise Subscription(4611ca1e-866d-48a2-9c61-bb92d9be1fe9)'
+    ServerName: 'databasedevopmm1025.mysql.database.azure.com'
+    SqlUsername: '$(SQL_USERNAME)'
+    SqlPassword: '$(PASSWORD)'
+    TaskNameSelector: 'SqlTaskFile'
+    SqlFile: 'SQL-Query/createusers.sql'
+    IpDetectionMethod: 'AutoDetect'
