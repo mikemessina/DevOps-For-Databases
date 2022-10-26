@@ -22,7 +22,7 @@ steps:
     provider: 'azurerm'
     command: 'plan'
     workingDirectory: 'SQL-Server-Creation'
-    commandOptions: '-var=password=$(SQL_PASSWORD)" -var="ip_address=$(IP_ADDRESS)"'
+    commandOptions: '-var="password=$(SQL_PASSWORD)" -var="ip_address=$(IP_ADDRESS)"'
     environmentServiceNameAzureRM: 'Visual Studio Enterprise Subscription(4611ca1e-866d-48a2-9c61-bb92d9be1fe9)'
 
 - task: TerraformTaskV3@3
@@ -30,5 +30,5 @@ steps:
     provider: 'azurerm'
     command: 'apply'
     workingDirectory: 'SQL-Server-Creation'
-    commandOptions: '-var=password=$(SQL_PASSWORD)" -var="ip_address=$(IP_ADDRESS)"'
+    commandOptions: '-var="password=$(SQL_PASSWORD)" -var="ip_address=$(IP_ADDRESS)"'
     environmentServiceNameAzureRM: 'Visual Studio Enterprise Subscription(4611ca1e-866d-48a2-9c61-bb92d9be1fe9)'
