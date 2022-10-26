@@ -1,11 +1,11 @@
-create database cloudskills2;
-use cloudskills2;
+create database cloudskills;
+use cloudskills;
 
-create table users1 (
+create table users (
     id int,
     FirstName varchar(255),
     LastName varchar(255)
 );
 
-insert into users1 (id, FirstName, LastName) values (1, 'Mike', 'Levan');
-insert into users1 (id, FirstName, LastName) values (2, 'Mike', 'Messina')
+insert into users (id, FirstName, LastName) values (1, 'Mike', 'Levan');
+insert into users (id, FirstName, LastName) values (2, 'Mike', 'Messina')
