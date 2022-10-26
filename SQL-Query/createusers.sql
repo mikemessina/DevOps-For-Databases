@@ -1,7 +1,7 @@
-create database cloudskills1;
-use cloudskills;
+create database cloudskills2;
+use cloudskills2;
 
-create table users (
+create table users1 (
     id int,
     FirstName varchar(255),
     LastName varchar(255)
