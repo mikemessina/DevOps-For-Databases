@@ -15,7 +15,7 @@ steps:
     backendAzureRmResourceGroupName: 'terraformstate-rg'
     backendAzureRmStorageAccountName: 'tfstatemwm102422'
     backendAzureRmContainerName: 'tfstate'
-    backendAzureRmKey: 'tf/terraform.state'
+    backendAzureRmKey: 'tf/terraform1.state'
   
 - task: TerraformTaskV3@3
   displayName: 'Terraform Plan'
