@@ -1,0 +1,36 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: TerraformTaskV3@3
+  displayName: 'Terraform Init'
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    workingDirectory: 'SQL-Server-Creation'
+    backendServiceArm: 'Visual Studio Enterprise Subscription(4611ca1e-866d-48a2-9c61-bb92d9be1fe9)'
+    backendAzureRmResourceGroupName: 'terraformstate-rg'
+    backendAzureRmStorageAccountName: 'tfstatemwm102422'
+    backendAzureRmContainerName: 'tfstate'
+    backendAzureRmKey: 'tf-terraform.tfstate'
+  
+- task: TerraformTaskV3@3
+  displayName: 'Terraform Plan'
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    workingDirectory: 'SQL-Server-Creation'
+    commandOptions: '-var="password=$(SQL_PASSWORD)" -var="ip_address=$(IP_ADDRESS)"'
+    environmentServiceNameAzureRM: 'Visual Studio Enterprise Subscription(4611ca1e-866d-48a2-9c61-bb92d9be1fe9)'
+
+- task: TerraformTaskV3@3
+  displayName: 'Terraform Apply'
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    workingDirectory: 'SQL-Server-Creation'
+    commandOptions: '-var="password=$(SQL_PASSWORD)" -var="ip_address=$(IP_ADDRESS)"'
+    environmentServiceNameAzureRM: 'Visual Studio Enterprise Subscription(4611ca1e-866d-48a2-9c61-bb92d9be1fe9)'
